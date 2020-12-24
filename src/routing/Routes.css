@@ -1,0 +1,5 @@
+.content-container {
+    background-color: var(--content-background);
+    min-height: 100vh;
+    padding: 40px 14% calc(40px + 50px) 14%;
+}

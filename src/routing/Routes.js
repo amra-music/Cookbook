@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from 'pages/Home/index'
-import MyRecipes from 'pages/Home/MyRecipes';
+import MyRecipes from 'pages/MyRecipes/index';
+
+import 'routing/Routes.css'
 
 
 const Routes = () => {
