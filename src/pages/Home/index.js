@@ -19,7 +19,7 @@ const Home = () => {
     }, [])
     return (
         <>
-            <Meal meal={meal} home={true} ></Meal>
+            <Meal meal={meal} setMeal={setMeal} home={true}></Meal>
         </>
     )
 }
