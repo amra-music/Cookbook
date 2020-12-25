@@ -2,12 +2,14 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { getRandomMeal } from 'api/meals';
 import { useHistory } from 'react-router-dom';
+import { FaYoutube, FaBookmark, FaRandom, FaEdit } from 'react-icons/fa'
 
 import 'components/Meal/Meal.css';
 
 const Meal = ({ meal, setMeal, home }) => {
 
     const history = useHistory();
+    var calcHeight = 0;
 
     const getIngredients = () => {
         let ingredients = [];
@@ -24,6 +26,13 @@ const Meal = ({ meal, setMeal, home }) => {
             }
             ingredients.push(pair);
         }
+
+        if (ingredients.length <= 10) calcHeight = 350;
+        else if (ingredients.length <= 15) calcHeight = 400;
+        else calcHeight = 500;
+
+        console.log(calcHeight);
+
         return ingredients;
     }
 
@@ -39,9 +48,15 @@ const Meal = ({ meal, setMeal, home }) => {
             <div className={home ? 'meal-container-home' : 'meal-container'}>
                 <div className='meal-title'>{meal.strMeal}</div>
                 <div className='meal-body' style={!home ? { 'flexWrap': 'wrap' } : null}>
-                    <img className='meal-image' alt='Meal' src={meal.strMealThumb} style={{ width: 300, height: 300 }}></img>
+                    <div className='meal-about-image'>
+                        <img className='meal-image' alt='Meal' src={meal.strMealThumb} style={{ width: 300, height: 300 }}></img>
+                        {home ?
+                            <Button className='square-btn' onClick={() => history.push('meal/' + meal.idMeal)} >View more</Button>
+                            : null
+                        }
+                    </div>
                     <div className='meal-about'>
-                        <div className='meal-ingredients'>
+                        <div className='meal-ingredients' style={home ? { 'height': { calcHeight } } : null}>
                             <table className='meal-ingredients-table'>
                                 <tbody>
                                     {getIngredients().map(element =>
@@ -52,19 +67,15 @@ const Meal = ({ meal, setMeal, home }) => {
                                 </tbody>
                             </table>
                         </div>
-                        {home ?
-                            <Button className='meal-about-btn' onClick={() => history.push('meal/' + meal.idMeal)} >See more</Button>
-                            : null
-                        }
                     </div>
                     {!home ? <div className='meal-instructions'>{meal.strInstructions}</div> : null}
                 </div>
             </div>
             <div className='meal-buttons-container'>
-                {home ? <Button className='radnom-meal-btn' onClick={getNewMeal}>Radnom</Button> : null}
-                {meal.strYoutube !== '' ? <Button className='youtube-btn' type="button" target='_blank' href={meal.strYoutube}>YouTube</Button> : null}
-                <Button className='save-btn'>Save</Button>
-                <Button className='edit-btn'>Edit</Button>
+                {home ? <button className='icon-btn' onClick={getNewMeal}><FaRandom /></button> : null}
+                <button className='icon-btn'><FaEdit /></button>
+                {meal.strYoutube !== '' ? <a className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}><FaYoutube /></a> : null}
+                <button className='square-btn'><FaBookmark className='save-icon' /> Save to collection</button>
             </div>
         </div>
     );
