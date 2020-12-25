@@ -1,0 +1,53 @@
+.meal-container-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: right;
+    width: 80%;
+    border-style: solid 1px;
+}
+
+.meal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.meal-title {
+    font-size: 50px;
+    text-align: center;
+    padding: 10px;
+}
+
+.meal-body {
+    display: flex;
+    justify-content: space-around;
+    padding: 25px;
+}
+
+.meal-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.meal-ingredients {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.meal-about-btn {
+    font-size: 25px;
+}
+
+.meal-instructions {
+    width: 80%;
+    padding: 20px 0px;
+    text-align: justify;
+}
+
+td {
+    padding-right: 25px;
+}

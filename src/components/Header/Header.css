@@ -1,0 +1,21 @@
+.header-content {
+    min-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.header-logo-title {
+    font-size: 35px;
+}
+
+.header-logo-icon {
+    font-size: 45px; 
+    color: var(--header-logo-icon); 
+    vertical-align: bottom;
+}
+
+.header-links {
+    font-size: 20px;
+}

@@ -1,0 +1,23 @@
+.footer-container {
+    position: absolute;
+    bottom: 0;
+    min-height: 50px;
+    width: 100%;
+    background-color: var(--footer-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-copyright {
+    font-size: 18px;
+    color: var(--white)
+}
+
+.social-link {
+    color: var(--white);
+}
+
+.social-link:hover {
+    color: var(--grey);
+}
