@@ -8,6 +8,8 @@
     display: flex;
     flex-direction: column;
     width: 80%;
+    border: 2px solid var(--icon-purple);
+    border-radius: 25px
 }
 
 .meal-container {
@@ -29,6 +31,16 @@
     padding: 25px;
 }
 
+.meal-about-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meal-image {
+    padding-bottom: 20px;
+}
+
 .meal-about {
     display: flex;
     flex-direction: column;
@@ -41,8 +53,8 @@
     padding-bottom: 20px;
 }
 
-.meal-about-btn {
-    font-size: 25px;
+td {
+    padding-right: 25px;
 }
 
 .meal-instructions {
@@ -51,6 +63,11 @@
     text-align: justify;
 }
 
-td {
-    padding-right: 25px;
+.meal-buttons-container {
+    padding-top: 30px;
+}
+
+.save-icon {
+    font-size: 20px;
+    vertical-align: bottom;
 }
