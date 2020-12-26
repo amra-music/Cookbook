@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getMealbyId } from 'api/meals';
+import { getMealbyId } from 'api/mealDb';
 import Meal from 'components/Meal';
 
 

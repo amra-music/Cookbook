@@ -71,3 +71,8 @@ td {
     font-size: 20px;
     vertical-align: bottom;
 }
+
+.meal-alert {
+    width: 80%;
+    text-align: center;
+}

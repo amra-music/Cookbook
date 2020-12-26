@@ -12,6 +12,3 @@ export const getMealbyId = async (id) => {
 export const getRandomMeal = async () => {
     return (await axios.get(`${mealDbUrl}/random.php`)).data;
 }
-
-
-

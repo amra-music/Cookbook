@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getRandomMeal } from 'api/meals';
+import { getRandomMeal } from 'api/mealDb';
 
 import 'pages/Home/Home.css';
 import Meal from 'components/Meal';

@@ -1,15 +1,17 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { getRandomMeal } from 'api/meals';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Alert, Button } from 'react-bootstrap';
+import { getRandomMeal } from 'api/mealDb';
+import { saveMeal } from 'api/backend';
 import { FaYoutube, FaBookmark, FaRandom, FaEdit } from 'react-icons/fa'
-import { saveAs } from 'file-saver';
 
 import 'components/Meal/Meal.css';
 
 const Meal = ({ meal, setMeal, home }) => {
 
     const history = useHistory();
+
+    const [response, setResponse] = useState(null);
 
     const getIngredients = () => {
         let ingredients = [];
@@ -37,20 +39,17 @@ const Meal = ({ meal, setMeal, home }) => {
         } catch (e) { }
     }
 
-    const saveMeal = () => {
-        // var recepti = []
-        // 1) spasiti u neki niz na backend
-        // post, prima meal, spasava u niz
-        // get, vraca recepti
-        // 2) localstorage
-        /*
-        const blob = new Blob([JSON.stringify([meal], null, 2)], { type: 'application/json' });
-        saveAs(blob, 'test.json');
-        */
+    const save = async () => {
+        try {
+            const response = await saveMeal(meal);
+            setResponse(response);
+        }
+        catch (e) { }
     }
 
     return (
         <div className='meal-container-wrap'>
+            {response !== null ? <Alert dismissible onClose={() => setResponse(null)} className='meal-alert' variant='purple'>{response}</Alert> : null}
             <div className={home ? 'meal-container-home' : 'meal-container'}>
                 <div className='meal-title'>{meal.strMeal}</div>
                 <div className='meal-body' style={!home ? { 'flexWrap': 'wrap' } : null}>
@@ -81,7 +80,7 @@ const Meal = ({ meal, setMeal, home }) => {
                 {home ? <button className='icon-btn' onClick={getNewMeal}><FaRandom /></button> : null}
                 <button className='icon-btn'><FaEdit /></button>
                 {meal.strYoutube !== '' ? <a className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}><FaYoutube /></a> : null}
-                <button className='square-btn' onClick={saveMeal} ><FaBookmark className='save-icon' /> Save to collection</button>
+                <button className='square-btn' onClick={save} ><FaBookmark className='save-icon' /> Save to collection</button>
             </div>
         </div>
     );

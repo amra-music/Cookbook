@@ -9,6 +9,11 @@ a {
     color: var(--black);
 }
 
+a:hover {
+    color: var(--black);
+    text-decoration: none;
+}
+
 .youtube-btn {
     font-size: 40px;
     color: var(--icon-purple);
@@ -53,4 +58,9 @@ a {
 .icon-btn:hover {
     font-size: 32px;
     transition: all 0.1s;
+}
+
+.alert-purple {
+    background-color: #695D8F59;
+    border-color: #695D8F59;
 }
