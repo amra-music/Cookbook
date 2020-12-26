@@ -3,35 +3,29 @@ import { Button } from 'react-bootstrap';
 import { getRandomMeal } from 'api/meals';
 import { useHistory } from 'react-router-dom';
 import { FaYoutube, FaBookmark, FaRandom, FaEdit } from 'react-icons/fa'
+import { saveAs } from 'file-saver';
 
 import 'components/Meal/Meal.css';
 
 const Meal = ({ meal, setMeal, home }) => {
 
     const history = useHistory();
-    var calcHeight = 0;
 
     const getIngredients = () => {
         let ingredients = [];
-        let strIngredient = "strIngredient";
-        let strMeasure = "strMeasure";
+        const strIngredient = "strIngredient";
+        const strMeasure = "strMeasure";
 
         for (let i = 1; i <= 20; i++) {
-            let newStrIngredient = strIngredient + i;
+            const newStrIngredient = strIngredient + i;
             if (meal[newStrIngredient] === "" || meal[newStrIngredient] === null) break;
-            let newStrMeasure = strMeasure + i;
-            let pair = {
+            const newStrMeasure = strMeasure + i;
+            const pair = {
                 "ingredient": meal[newStrIngredient],
                 "measure": meal[newStrMeasure]
             }
             ingredients.push(pair);
         }
-
-        if (ingredients.length <= 10) calcHeight = 350;
-        else if (ingredients.length <= 15) calcHeight = 400;
-        else calcHeight = 500;
-
-        console.log(calcHeight);
 
         return ingredients;
     }
@@ -41,6 +35,18 @@ const Meal = ({ meal, setMeal, home }) => {
             const data = await getRandomMeal();
             setMeal(data.meals[0]);
         } catch (e) { }
+    }
+
+    const saveMeal = () => {
+        // var recepti = []
+        // 1) spasiti u neki niz na backend
+        // post, prima meal, spasava u niz
+        // get, vraca recepti
+        // 2) localstorage
+        /*
+        const blob = new Blob([JSON.stringify([meal], null, 2)], { type: 'application/json' });
+        saveAs(blob, 'test.json');
+        */
     }
 
     return (
@@ -56,7 +62,7 @@ const Meal = ({ meal, setMeal, home }) => {
                         }
                     </div>
                     <div className='meal-about'>
-                        <div className='meal-ingredients' style={home ? { 'height': { calcHeight } } : null}>
+                        <div className='meal-ingredients'>
                             <table className='meal-ingredients-table'>
                                 <tbody>
                                     {getIngredients().map(element =>
@@ -75,7 +81,7 @@ const Meal = ({ meal, setMeal, home }) => {
                 {home ? <button className='icon-btn' onClick={getNewMeal}><FaRandom /></button> : null}
                 <button className='icon-btn'><FaEdit /></button>
                 {meal.strYoutube !== '' ? <a className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}><FaYoutube /></a> : null}
-                <button className='square-btn'><FaBookmark className='save-icon' /> Save to collection</button>
+                <button className='square-btn' onClick={saveMeal} ><FaBookmark className='save-icon' /> Save to collection</button>
             </div>
         </div>
     );

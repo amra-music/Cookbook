@@ -11,7 +11,7 @@ const Header = () => {
                     <GiCookingPot className='header-logo-icon' />
                     <span className='header-logo-title' >Cookbook</span>
                 </Link>
-                <Link className='header-links' to='/myRecipes' >My recipes</Link>
+                <Link className='header-links' to='/my_meals' >My meals</Link>
             </div>
         </div>
     );
