@@ -1,0 +1,5 @@
+.basic-meals-container {
+    display: flex;   
+    flex-wrap: wrap; 
+    padding-bottom: 30px;
+}

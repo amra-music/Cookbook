@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Alert, Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import { getRandomMeal } from 'api/mealDb';
 import { saveMeal } from 'api/backend';
 import { FaYoutube, FaBookmark, FaRandom, FaEdit } from 'react-icons/fa'
@@ -37,6 +37,7 @@ const Meal = ({ meal, setMeal, home }) => {
             const data = await getRandomMeal();
             setMeal(data.meals[0]);
         } catch (e) { }
+        setResponse(null);
     }
 
     const save = async () => {
@@ -49,14 +50,14 @@ const Meal = ({ meal, setMeal, home }) => {
 
     return (
         <div className='meal-container-wrap'>
-            {response !== null ? <Alert dismissible onClose={() => setResponse(null)} className='meal-alert' variant='purple'>{response}</Alert> : null}
+            {response !== null ? <Alert className='meal-alert' variant='purple' style={home ? {width:'80%'} : {width:'100%'}} dismissible onClose={() => setResponse(null)} >{response}</Alert> : null}
             <div className={home ? 'meal-container-home' : 'meal-container'}>
                 <div className='meal-title'>{meal.strMeal}</div>
                 <div className='meal-body' style={!home ? { 'flexWrap': 'wrap' } : null}>
                     <div className='meal-about-image'>
                         <img className='meal-image' alt='Meal' src={meal.strMealThumb} style={{ width: 300, height: 300 }}></img>
                         {home ?
-                            <Button className='square-btn' onClick={() => history.push('meal/' + meal.idMeal)} >View more</Button>
+                            <button className='square-btn' onClick={() => history.push('meal/' + meal.idMeal)} >View more</button>
                             : null
                         }
                     </div>

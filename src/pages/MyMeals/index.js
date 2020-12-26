@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { getMyMeals } from 'api/backend';
 import { saveAs } from 'file-saver';
+import BasicMeal from 'components/BasicMeal';
+
+import 'pages/MyMeals/MyMeals.css'
 
 const MyMeals = () => {
 
@@ -24,8 +27,10 @@ const MyMeals = () => {
 
     return (
         <div className='my-meals-container'>
-            {myMeals.map(meal => <h3>{meal.strMeal}</h3>)}
-            <button className='square-btn' onClick={exportJson}>Export as .json file</button>
+            <div className='basic-meals-container'>
+                {myMeals.map(meal => <BasicMeal meal={meal} />)}
+            </div>
+            <button className='square-btn' style={{float:'right'}} onClick={exportJson}>Export as .json file</button>
         </div>
     )
 }
