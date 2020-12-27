@@ -5,6 +5,7 @@ import MyMeals from 'pages/MyMeals/index';
 import MealPage from 'pages/MealPage/index';
 import CategoryPage from 'pages/CategoryPage/index';
 import SearchResulPage from 'pages/SearchResultPage/index';
+import NotFoundPage from 'pages/NotFoundPage/index';
 
 import 'routing/Routes.css'
 
@@ -18,6 +19,7 @@ const Routes = () => {
                 <Route path="/meal/:id" component={MealPage} />
                 <Route path="/category/:category" component={CategoryPage} />
                 <Route path="/search/:input" component={SearchResulPage} />
+                <Route component={NotFoundPage} />
             </Switch>
         </div>
     );
