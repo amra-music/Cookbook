@@ -60,6 +60,16 @@ a:hover {
     transition: all 0.1s;
 }
 
+.save-icon {
+    font-size: 20px;
+    vertical-align: bottom;
+}
+
+.arrow-icon {
+    position: absolute;
+    left: 10px;
+}
+
 .alert-purple {
     background-color: #695D8F59;
     border-color: #695D8F59;

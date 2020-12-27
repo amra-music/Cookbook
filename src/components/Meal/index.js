@@ -3,14 +3,13 @@ import { useHistory } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import { getRandomMeal } from 'api/mealDb';
 import { saveMeal } from 'api/backend';
-import { FaYoutube, FaBookmark, FaRandom, FaEdit, FaArrowLeft } from 'react-icons/fa'
+import { FaYoutube, FaBookmark, FaRandom, FaEdit, FaArrowLeft } from 'react-icons/fa';
 
 import 'components/Meal/Meal.css';
 
 const Meal = ({ meal, setMeal, home }) => {
 
     const history = useHistory();
-
     const [response, setResponse] = useState(null);
 
     const getIngredients = () => {
@@ -50,7 +49,7 @@ const Meal = ({ meal, setMeal, home }) => {
 
     return (
         <div className='meal-container-wrap'>
-            {!home ? <button className='icon-btn arrow-icon' style={{float:'left'}} onClick={() => history.goBack()}><FaArrowLeft /></button> : null}
+            {!home ? <button className='icon-btn arrow-icon' style={{ float: 'left' }} onClick={() => history.goBack()}><FaArrowLeft /></button> : null}
             {response !== null ? <Alert className='meal-alert' variant='purple' style={home ? { width: '80%' } : { width: '100%' }} dismissible onClose={() => setResponse(null)} >{response}</Alert> : null}
             <div className={home ? 'meal-container-home' : 'meal-container'}>
                 <div className='meal-title'>{meal.strMeal}</div>

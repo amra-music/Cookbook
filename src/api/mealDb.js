@@ -12,3 +12,11 @@ export const getMealbyId = async (id) => {
 export const getRandomMeal = async () => {
     return (await axios.get(`${mealDbUrl}/random.php`)).data;
 }
+
+export const getAllCategories = async () => {
+    return (await axios.get(`${mealDbUrl}/categories.php`)).data;
+}
+
+export const getMealsbyCategory = async (category) => {
+    return (await axios.get(`${mealDbUrl}/filter.php?c=${category}`)).data;
+}
