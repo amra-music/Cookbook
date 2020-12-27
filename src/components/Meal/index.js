@@ -50,7 +50,7 @@ const Meal = ({ meal, setMeal, home }) => {
     return (
         <div className='meal-container-wrap'>
             {!home ? <button className='icon-btn arrow-icon' style={{ float: 'left' }} onClick={() => history.goBack()}><FaArrowLeft /></button> : null}
-            {response !== null ? <Alert className='meal-alert' variant='purple' style={home ? { width: '80%' } : { width: '100%' }} dismissible onClose={() => setResponse(null)} >{response}</Alert> : null}
+            {response !== null ? <Alert className='meal-alert' variant='purple' style={home ? { width: '93%' } : { width: '90%' }} dismissible onClose={() => setResponse(null)} >{response}</Alert> : null}
             <div className={home ? 'meal-container-home' : 'meal-container'}>
                 <div className='meal-title'>{meal.strMeal}</div>
                 <div className='meal-body' style={!home ? { 'flexWrap': 'wrap' } : null}>
