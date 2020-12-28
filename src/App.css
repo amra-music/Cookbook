@@ -75,6 +75,18 @@ a:hover {
     border-color: var(--alert-purple);
 }
 
+.btn-purple {
+    color: var(--white);
+    background-color: var(--icon-purple);
+    border-color: var(--icon-purple);
+}
+
+.btn-purple:hover {
+    color: var(--white);
+    background-color: var(--icon-purple-darker);
+    border-color: var(--icon-purple-darker);
+}
+
 .search {
     padding: 0px 25px;
 }
@@ -97,4 +109,49 @@ a:hover {
     cursor: pointer;
     color: var(--dark-slate-grey);
     background-color: var(--light-steel-blue);
+}
+
+.modal-dialog {
+    max-width: 800px;
+}
+
+.modal-content {
+    border: 5px solid var(--icon-purple);
+    background-color: var(--content-background);
+}
+
+.modal-header {
+    padding: 0.5rem 1rem;
+}
+
+.modal-title {
+   color: var(--icon-purple);
+}
+
+.modal-ingredients {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+textarea.form-control {
+    max-height: 40px;
+}
+
+.modal-instructions {
+    min-height: 200px;
+}
+
+.modal-footer {
+    padding: 0.5rem;
+}
+
+.form-label {
+    font-size: 20px;
+    color: var(--icon-purple);
+    font-weight: lighter;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px var(--icon-purple);
+    border: 1px solid var(--icon-purple);
 }

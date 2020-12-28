@@ -24,7 +24,7 @@ app.post('/post_meal', (req, res) => {
     fs.readFile('meals.json', (err, data) => {
         if (err) { throw err; }
         let existingMeals = JSON.parse(data)
-        const found = existingMeals.some(meal => meal.idMeal === req.body.idMeal);
+        const found = existingMeals.some(meal => (meal.idMeal === req.body.idMeal && meal.strMeal === req.body.strMeal ));
         if (!found) {
             meals = [req.body, ...existingMeals]
             fs.writeFile('meals.json', JSON.stringify(meals, null, 2), (err) => {

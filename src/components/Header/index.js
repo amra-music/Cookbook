@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { GiCookingPot } from 'react-icons/gi';
 import { IoSearchOutline } from 'react-icons/io5';
@@ -9,10 +9,11 @@ const Header = () => {
 
     const history = useHistory();
 
+    const [searchValue, setSearchValue] = useState('');
+
     const search = () => {
-        let input = document.getElementsByClassName("search-input")[0].value;
-        if (input !== "") history.push('/search/' + input);
-        document.getElementsByClassName("search-input")[0].value = "";
+        if (searchValue !== "") history.push('/search/' + searchValue);
+        setSearchValue("");
     }
 
     const handleSearchInput = () => {
@@ -24,6 +25,7 @@ const Header = () => {
             search();
         }
     }
+
     return (
         <div className='header-container'>
             <div className='header-content'>
@@ -33,7 +35,7 @@ const Header = () => {
                 </Link>
                 <div>
                     <span className='search'>
-                        <input className='search-input' placeholder='Search meal' onKeyPress={onEnter} />
+                        <input className='search-input' placeholder='Search meal' onKeyPress={onEnter} value={searchValue} onChange={e => setSearchValue(e.target.value)} />
                         <span className='search-icon' onClick={handleSearchInput}><IoSearchOutline /></span>
                     </span>
                     <Link className='header-links' to='/my_meals' >My meals</Link>

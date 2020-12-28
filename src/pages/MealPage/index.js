@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { getMealbyId } from 'api/mealDb';
 import Meal from 'components/Meal';
+import { useHistory } from 'react-router-dom';
 
 
 const MealPage = ({ match }) => {
+    const history = useHistory();
 
-    const [meal, setMeal] = useState({});
+    const [meal, setMeal] = useState(history.location.state === undefined ? {} : history.location.state.meal);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,8 +17,9 @@ const MealPage = ({ match }) => {
                 setMeal(data.meals[0]);
             } catch (e) { }
         };
-        fetchData();
-    }, [match.params.id])
+        if (Object.keys(meal).length === 0)
+            fetchData();
+    }, [match.params.id, meal])
 
     return (
         <>
