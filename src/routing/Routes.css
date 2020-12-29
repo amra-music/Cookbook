@@ -3,3 +3,10 @@
     min-height: 100vh;
     padding: 40px 14% calc(40px + 50px) 14%;
 }
+
+@media (max-width: 767px) {
+    .content-container {
+        padding-right: 12%;
+        padding-left: 12%;
+    }
+}

@@ -9,3 +9,9 @@
     right: 3%;
     top: 108px;
 }
+
+@media (max-width: 767px) {
+    .basic-meals-container>h3 {
+        margin-top: 60px;
+    }
+}

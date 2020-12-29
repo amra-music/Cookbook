@@ -78,3 +78,9 @@ td {
 .meal-alert {
     text-align: center;
 }
+
+@media (max-width: 1199px) {
+    .meal-container-home {
+        height: unset;
+    }
+}

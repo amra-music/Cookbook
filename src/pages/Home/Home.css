@@ -27,3 +27,13 @@
 .meal-categories-btn:hover {
     background-color: var(--icon-purple);
 }
+
+@media (max-width: 575px) {
+    .meal-categories {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .meal-categories-wrap {
+        flex-wrap: wrap;
+    }
+}

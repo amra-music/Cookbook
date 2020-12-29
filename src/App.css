@@ -165,3 +165,21 @@ textarea.form-control {
     box-shadow: 0 0 5px var(--icon-purple);
     border: 1px solid var(--icon-purple);
 }
+
+@media (max-width: 1199px) {
+    .search-input {
+        width: 250px;
+    }
+}
+
+@media (max-width: 991px) {
+    .search-input {
+        width: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search-input {
+        width: 100px;
+    }
+}
