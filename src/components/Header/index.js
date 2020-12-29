@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useUserContext } from 'AppContext';
 import { Link, useHistory } from 'react-router-dom';
 import { GiCookingPot } from 'react-icons/gi';
 import { IoSearchOutline } from 'react-icons/io5';
+import Login from 'components/Login';
 
 import 'components/Header/Header.css';
 
@@ -9,6 +11,7 @@ const Header = () => {
 
     const history = useHistory();
 
+    const { loggedIn } = useUserContext();
     const [searchValue, setSearchValue] = useState('');
 
     const search = () => {
@@ -35,10 +38,11 @@ const Header = () => {
                 </Link>
                 <div>
                     <span className='search'>
-                        <input className='search-input' placeholder='Search meal' onKeyPress={onEnter} value={searchValue} onChange={e => setSearchValue(e.target.value)} />
+                        <input className='header-input search-input' placeholder='Search meal' onKeyPress={onEnter} value={searchValue} onChange={e => setSearchValue(e.target.value)} />
                         <span className='search-icon' onClick={handleSearchInput}><IoSearchOutline /></span>
                     </span>
-                    <Link className='header-links' to='/my_meals' >My meals</Link>
+                    {loggedIn ? <Link className='header-links' to='/my_meals' >My meals</Link> : null}
+                    <Login />
                 </div>
             </div>
         </div>

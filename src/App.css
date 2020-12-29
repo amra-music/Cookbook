@@ -27,6 +27,11 @@ a:hover {
     transition: all 0.1s;
 }
 
+.header-btn {
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
 .square-btn {
     font-size: 18px;
     cursor: pointer;
@@ -92,8 +97,11 @@ a:hover {
 }
 
 .search-input {
-    padding: 3px 4px;
     width: 500px;
+}
+
+.header-input {
+    padding: 3px 4px;
     border: 0.5px solid var(--light-grey);
 }
 
@@ -125,7 +133,7 @@ a:hover {
 }
 
 .modal-title {
-   color: var(--icon-purple);
+    color: var(--icon-purple);
 }
 
 .modal-ingredients {

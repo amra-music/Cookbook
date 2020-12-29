@@ -5,6 +5,7 @@ import { getRandomMeal } from 'api/mealDb';
 import { saveMeal } from 'api/backend';
 import { FaYoutube, FaBookmark, FaRandom, FaEdit, FaArrowLeft } from 'react-icons/fa';
 import EditMealModal from 'components/EditMealModal';
+import { useUserContext } from 'AppContext';
 
 import 'components/Meal/Meal.css';
 
@@ -14,6 +15,7 @@ const Meal = ({ meal, setMeal, home }) => {
     const [response, setResponse] = useState(null);
     const [show, setShow] = useState(false);
     const [ingredients, setIngredients] = useState([]);
+    const { loggedIn } = useUserContext();
 
     useEffect(() => {
         let ingredients = [];
@@ -45,17 +47,26 @@ const Meal = ({ meal, setMeal, home }) => {
     const save = async () => {
         try {
             const response = await saveMeal(meal);
+            console.log(response)
             setResponse(response);
         }
-        catch (e) { }
+        catch (e) {
+            console.log(response)
+        }
     }
 
     const handleShow = () => setShow(true);
 
     return (
         <div className='meal-container-wrap'>
-            {!home ? <button className='icon-btn arrow-icon' style={{ float: 'left' }} onClick={() => history.goBack()}><FaArrowLeft /></button> : null}
-            {response !== null ? <Alert className='meal-alert' variant='purple' style={home ? { width: '93%' } : { width: '90%' }} dismissible onClose={() => setResponse(null)} >{response}</Alert> : null}
+            {!home ?
+                <button className='icon-btn arrow-icon' style={{ float: 'left' }} onClick={() => history.goBack()}><FaArrowLeft /></button>
+                : null
+            }
+            {response !== null ?
+                <Alert className='meal-alert' variant='purple' style={home ? { width: '93%' } : { width: '90%' }} dismissible onClose={() => setResponse(null)} >{response}</Alert>
+                : null
+            }
             <div className={home ? 'meal-container-home' : 'meal-container'}>
                 <div className='meal-title'>{meal.strMeal}</div>
                 <div className='meal-body' style={!home ? { 'flexWrap': 'wrap' } : null}>
@@ -83,10 +94,22 @@ const Meal = ({ meal, setMeal, home }) => {
                 </div>
             </div>
             <div className='meal-buttons-container'>
-                {home ? <button className='icon-btn' onClick={getNewMeal}><FaRandom /></button> : null}
-                <button className='icon-btn' onClick={handleShow}><FaEdit /></button>
-                {meal.strYoutube !== '' ? <a className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}><FaYoutube /></a> : null}
-                <button className='square-btn' onClick={save} ><FaBookmark className='save-icon' /> Save to collection</button>
+                {home ?
+                    <button className='icon-btn' onClick={getNewMeal}><FaRandom /></button>
+                    : null
+                }
+                {loggedIn ?
+                    <button className='icon-btn' onClick={handleShow}><FaEdit /></button>
+                    : null
+                }
+                {meal.strYoutube !== '' ?
+                    <a className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}><FaYoutube /></a>
+                    : null
+                }
+                {loggedIn ?
+                    <button className='square-btn' onClick={save} ><FaBookmark className='save-icon' /> Save to collection</button>
+                    : null
+                }
             </div>
             <EditMealModal meal={meal} setMeal={setMeal} show={show} setShow={setShow} ingredients={ingredients} />
         </div >
