@@ -11,7 +11,8 @@
     flex-direction: column;
     width: 93%;
     border: 2px solid var(--icon-purple);
-    border-radius: 25px
+    border-radius: 25px;
+    height: 580px;
 }
 
 .meal-container {
@@ -30,6 +31,7 @@
 .meal-body {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 25px;
 }
 
@@ -53,6 +55,10 @@
 .meal-ingredients {
     text-align: center;
     padding-bottom: 20px;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 420px;
+    max-width: 500px;
 }
 
 td {

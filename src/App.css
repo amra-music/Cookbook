@@ -15,15 +15,16 @@ a:hover {
 }
 
 .youtube-btn {
-    font-size: 40px;
+    font-size: 70px;
     color: var(--icon-purple);
     vertical-align: middle;
     transition: all 0.1s;
     padding-right: 25px;
+    cursor: pointer;
 }
 
 .youtube-btn:hover {
-    font-size: 42px;
+    font-size: 72px;
     transition: all 0.1s;
 }
 
@@ -50,7 +51,7 @@ a:hover {
 }
 
 .icon-btn {
-    font-size: 30px;
+    font-size: 60px;
     cursor: pointer;
     background: var(--content-background);
     color: var(--icon-purple);
@@ -61,7 +62,7 @@ a:hover {
 }
 
 .icon-btn:hover {
-    font-size: 32px;
+    font-size: 62px;
     transition: all 0.1s;
 }
 
@@ -72,7 +73,7 @@ a:hover {
 
 .arrow-icon {
     position: absolute;
-    left: 10px;
+    left: 5%;
 }
 
 .alert-purple {

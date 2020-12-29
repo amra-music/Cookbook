@@ -24,7 +24,7 @@ const SearchResulPage = ({ match }) => {
 
     return (
         <div className='my-meals-container'>
-            <button className='icon-btn arrow-icon' onClick={() => history.goBack()}><FaArrowLeft /></button>
+            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()}></FaArrowLeft >
             <h2 style={{ margin: 8 }}>Search results</h2>
             <div className='basic-meals-container'>
                 {searchResultMeals !== null ?
@@ -32,7 +32,7 @@ const SearchResulPage = ({ match }) => {
                     :
                     <h3 style={{ margin: 8 }}>There are no meals with this name</h3>}
             </div>
-        </div>
+        </div >
     )
 }
 

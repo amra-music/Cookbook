@@ -24,7 +24,7 @@ const CategoryPage = ({ match }) => {
 
     return (
         <div className='my-meals-container'>
-            <button className='icon-btn arrow-icon' onClick={() => history.goBack()}><FaArrowLeft /></button>
+            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()}></FaArrowLeft>
             <div className='basic-meals-container'>
                 {categoryMeals.map(meal => <BasicMeal meal={meal} />)}
             </div>

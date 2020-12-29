@@ -57,7 +57,7 @@ const Meal = ({ meal, setMeal, home }) => {
     return (
         <div className='meal-container-wrap'>
             {!home ?
-                <button className='icon-btn arrow-icon' style={{ float: 'left' }} onClick={() => history.goBack()}><FaArrowLeft /></button>
+                <FaArrowLeft className='icon-btn arrow-icon' style={{ left: '-11%' }} onClick={() => history.goBack()}></FaArrowLeft>
                 : null
             }
             {response !== null ?
@@ -92,15 +92,15 @@ const Meal = ({ meal, setMeal, home }) => {
             </div>
             <div className='meal-buttons-container'>
                 {home ?
-                    <button className='icon-btn' onClick={getNewMeal}><FaRandom /></button>
+                    <FaRandom className='icon-btn' onClick={getNewMeal}></FaRandom>
                     : null
                 }
                 {loggedIn ?
-                    <button className='icon-btn' onClick={handleShow}><FaEdit /></button>
+                    <FaEdit className='icon-btn' onClick={handleShow}></FaEdit>
                     : null
                 }
                 {meal.strYoutube !== '' ?
-                    <a className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}><FaYoutube /></a>
+                    <FaYoutube className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}></FaYoutube>
                     : null
                 }
                 {loggedIn ?

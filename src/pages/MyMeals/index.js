@@ -30,11 +30,11 @@ const MyMeals = () => {
 
     return (
         <div className='my-meals-container'>
-            <button className='icon-btn arrow-icon' onClick={() => history.goBack()}><FaArrowLeft /></button>
+            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()}></FaArrowLeft>
             <div className='basic-meals-container'>
                 {myMeals.map(meal => <BasicMeal meal={meal} myMeals={myMeals} setMyMeals={setMyMeals} />)}
             </div>
-            <button className='square-btn' style={{float:'right'}} onClick={exportJson}>Export as .json file</button>
+            <button className='square-btn' style={{ float: 'right' }} onClick={exportJson}>Export as .json file</button>
         </div>
     )
 }

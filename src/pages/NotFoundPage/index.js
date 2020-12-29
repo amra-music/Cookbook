@@ -11,7 +11,7 @@ const PageNotFound = () => {
     return (
         <div className='content-wrap' style={{ textAlign: 'center', position: 'relative' }}>
             <h1 className='pageNotFound-title'>Page not found
-            <button className='icon-btn arrow-icon' onClick={() => history.goBack()}><FaArrowLeft /></button>
+            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()}></FaArrowLeft>
             </h1>
 
             <div className='pageNotFoundImageWrap'>
