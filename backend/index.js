@@ -53,6 +53,24 @@ app.post('/post_meal', (req, res) => {
     });
 });
 
+app.delete('/delete_meal', function (req, res) {
+    verify(req, res);
+    fs.readFile('meals.json', (err, data) => {
+        if (err) { throw err; }
+        let existingMeals = JSON.parse(data);
+        const found = existingMeals.find(meal => (meal.strMeal === req.body.strMeal));
+        const newMeals = existingMeals.filter(meal => (meal.strMeal !== req.body.strMeal));
+        if (found !== undefined) {
+            fs.writeFile('meals.json', JSON.stringify(newMeals, null, 2), (err) => {
+                if (err) throw err;
+                res.send('Meal successfully deleted.');
+            })
+        } else {
+            res.send('This meal does not exist.');
+        }
+    });
+})
+
 app.post('/auth/login', (req, res) => {
 
     if (req.body.username !== 'cookbook' || req.body.password !== '#softhouseApp')

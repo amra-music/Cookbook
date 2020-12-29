@@ -19,6 +19,19 @@ export const saveMeal = async (meal) => {
     })).data;
 }
 
+export const deleteMeal = async (name) => {
+    return (await axios.delete(`${backendUrl}/delete_meal`,
+        {
+            data: {
+                "strMeal": name
+            },
+            headers: {
+                'x-access-token': getToken()
+            }
+        }
+    )).data;
+}
+
 export const loginUser = async (user) => {
     return (await axios.post(backendUrl + '/auth/login', user)).data;
 };

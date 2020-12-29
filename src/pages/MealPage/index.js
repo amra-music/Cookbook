@@ -17,14 +17,12 @@ const MealPage = ({ match }) => {
                 setMeal(data.meals[0]);
             } catch (e) { }
         };
-        if (Object.keys(meal).length === 0)
+        if (Object.keys(meal).length === 0 || meal.strInstructions === undefined)
             fetchData();
     }, [match.params.id, meal])
 
     return (
-        <>
-            <Meal meal={meal} setMeal={setMeal} home={false}></Meal>
-        </>
+        <Meal meal={meal} setMeal={setMeal} home={false}></Meal>
     )
 }
 

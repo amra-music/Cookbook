@@ -47,12 +47,9 @@ const Meal = ({ meal, setMeal, home }) => {
     const save = async () => {
         try {
             const response = await saveMeal(meal);
-            console.log(response)
             setResponse(response);
         }
-        catch (e) {
-            console.log(response)
-        }
+        catch (e) { }
     }
 
     const handleShow = () => setShow(true);
