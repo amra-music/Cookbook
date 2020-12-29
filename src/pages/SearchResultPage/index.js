@@ -12,6 +12,7 @@ const SearchResulPage = ({ match }) => {
     const [searchResultMeals, setSearchResultMeals] = useState([]);
 
     useEffect(() => {
+        document.title = 'Search | Cookbook app';
         const fetchData = async () => {
             const input = match.params.input;
             try {

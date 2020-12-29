@@ -38,7 +38,7 @@ const Header = () => {
                 </Link>
                 <div>
                     <span className='search'>
-                        <input className='header-input search-input' placeholder='Search meal' onKeyPress={onEnter} value={searchValue} onChange={e => setSearchValue(e.target.value)} />
+                        <input className='header-input search-input' style={{borderRight:'none'}} placeholder='Search meal' onKeyPress={onEnter} value={searchValue} onChange={e => setSearchValue(e.target.value)} />
                         <span className='search-icon' onClick={handleSearchInput}><IoSearchOutline /></span>
                     </span>
                     {loggedIn ? <Link className='header-links' to='/my_meals' >My meals</Link> : null}

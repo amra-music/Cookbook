@@ -45,6 +45,13 @@ const Login = () => {
         removeSession();
     }
 
+    const onEnter = (event) => {
+        if (event.key === 'Enter') {
+            login();
+        }
+    }
+
+
     return (
         <>
             {loggedIn ?
@@ -53,8 +60,8 @@ const Login = () => {
                 </button>
                 :
                 <>
-                    <input className='header-input' style={{ width: 150 }} placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <input className='header-input' style={{ width: 150 }} type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input className='header-input' style={{ width: 150, marginRight: 10 }} placeholder='Username' value={username} onKeyPress={onEnter} onChange={(e) => setUsername(e.target.value)} />
+                    <input className='header-input' style={{ width: 150 }} type='password' placeholder='Password' value={password} onKeyPress={onEnter} onChange={(e) => setPassword(e.target.value)} />
                     <button className='header-btn btn-purple' onClick={onClick} >Login</button>
                 </>
             }

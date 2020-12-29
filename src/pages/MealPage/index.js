@@ -10,6 +10,7 @@ const MealPage = ({ match }) => {
     const [meal, setMeal] = useState(history.location.state === undefined ? {} : history.location.state.meal);
 
     useEffect(() => {
+        document.title = 'About meal | Cookbook app';
         const fetchData = async () => {
             const mealId = match.params.id;
             try {

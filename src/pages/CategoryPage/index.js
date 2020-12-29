@@ -12,10 +12,13 @@ const CategoryPage = ({ match }) => {
     const [categoryMeals, setCategoryMeals] = useState([]);
 
     useEffect(() => {
+        document.title = 'Categories | Cookbook app';
         const fetchData = async () => {
             const category = match.params.category;
             try {
                 const data = await getMealsbyCategory(category);
+                if (data.meals === null)
+                    data.meals = [];
                 setCategoryMeals(data.meals);
             } catch (e) { }
         };

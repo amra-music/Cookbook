@@ -112,6 +112,7 @@ a:hover {
     vertical-align: bottom;
     border: 0.5px solid var(--light-grey);
     display: inline-grid;
+    border-left: none;
 }
 
 .search-icon:hover {

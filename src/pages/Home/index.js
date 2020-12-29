@@ -12,6 +12,7 @@ const Home = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
+        document.title = 'Cookbook app';
         const fetchData = async () => {
             try {
                 const meal = await getRandomMeal();

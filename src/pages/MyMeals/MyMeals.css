@@ -1,5 +1,11 @@
 .basic-meals-container {
-    display: flex;   
-    flex-wrap: wrap; 
+    display: flex;
+    flex-wrap: wrap;
     padding-bottom: 30px;
+}
+
+.export-btn {
+    position: absolute;
+    right: 3%;
+    top: 108px;
 }

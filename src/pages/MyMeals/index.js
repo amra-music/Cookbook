@@ -13,6 +13,7 @@ const MyMeals = () => {
     const [myMeals, setMyMeals] = useState([])
 
     useEffect(() => {
+        document.title = 'My meals | Cookbook app';
         const fetchData = async () => {
             try {
                 const response = await getMyMeals();
@@ -32,9 +33,13 @@ const MyMeals = () => {
         <div className='my-meals-container'>
             <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()}></FaArrowLeft>
             <div className='basic-meals-container'>
+                {myMeals.length === 0 ? <h3>You do not have any saved meals in your collection</h3> : null}
                 {myMeals.map(meal => <BasicMeal meal={meal} myMeals={myMeals} setMyMeals={setMyMeals} />)}
             </div>
-            <button className='square-btn' style={{ float: 'right' }} onClick={exportJson}>Export as .json file</button>
+            {myMeals.length !== 0 ?
+                <button className='square-btn export-btn' onClick={exportJson}>Export as .json file</button>
+                : null
+            }
         </div>
     )
 }
