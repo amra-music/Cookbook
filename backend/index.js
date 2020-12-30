@@ -13,14 +13,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 8080;
 
+fs.readFile('meals.json', (err) => {
+    if (err) {
+        fs.writeFile('meals.json', '[]', () => {
+            console.log('New file created');
+        })
+    }
+})
+
 function verify(req, res) {
     const token = req.headers['x-access-token'];
     if (!token)
-        return res.status(401).send({ auth: false, message: 'No token provided.' });
+        return false;
     jwt.verify(token, process.env.TOKEN_SECRET, (err) => {
         if (err)
-            return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+            return false;
     });
+    return true;
 }
 
 app.get('/', (req, res) => {
@@ -28,7 +37,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/get_my_meals', (req, res) => {
-    verify(req, res);
+    if (!verify(req, res))
+        return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
     fs.readFile('meals.json', (err, data) => {
         if (err) {
             return res.status(500).send({ message: 'Error while reading meals.json' });
@@ -39,7 +49,8 @@ app.get('/get_my_meals', (req, res) => {
 });
 
 app.post('/post_meal', (req, res) => {
-    verify(req, res);
+    if (!verify(req, res))
+        return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
     let meals;
     fs.readFile('meals.json', (err, data) => {
         if (err) {
@@ -62,7 +73,8 @@ app.post('/post_meal', (req, res) => {
 });
 
 app.delete('/delete_meal', function (req, res) {
-    verify(req, res);
+    if (!verify(req, res))
+        return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
     fs.readFile('meals.json', (err, data) => {
         if (err) {
             return res.status(500).send({ message: 'Error while reading meals.json' });
