@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "3cb51e8d-cc2a-4f63-863f-3d2f6d2c3004",
+		"name": "Cookbook App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "cookbook",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "#softhouseApp",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{backendUrl}}/auth/login",
+					"host": [
+						"{{backendUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get my meals",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{backendUrl}}/get_my_meals",
+					"host": [
+						"{{backendUrl}}"
+					],
+					"path": [
+						"get_my_meals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete meal",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"strMeal\": \"Braised Beef Chilli\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{backendUrl}}/delete_meal",
+					"host": [
+						"{{backendUrl}}"
+					],
+					"path": [
+						"delete_meal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add meal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMeal\": \"5295112\",\r\n    \"strMeal\": \"General Tso's Chicken MARRA\",\r\n    \"strDrinkAlternate\": null,\r\n    \"strCategory\": \"Chicken\",\r\n    \"strArea\": \"Chinese\",\r\n    \"strInstructions\": \"DIRECTIONS:\\r\\nSTEP 1 - SAUCE\\r\\nIn a bowl, add 2 Cups of water, 2 Tablespoon soy sauce, 2 Tablespoon white vinegar, sherry cooking wine, 1/4 Teaspoon white pepper, minced ginger, minced garlic, hot pepper, ketchup, hoisin sauce, and sugar.\\r\\nMix together well and set aside.\\r\\nSTEP 2 - MARINATING THE CHICKEN\\r\\nIn a bowl, add the chicken, 1 pinch of salt, 1 pinch of white pepper, 2 egg whites, and 3 Tablespoon of corn starch\\r\\nSTEP 3 - DEEP FRY THE CHICKEN\\r\\nDeep fry the chicken at 350 degrees for 3-4 minutes or until it is golden brown and loosen up the chicken so that they don't stick together.\\r\\nSet the chicken aside.\\r\\nSTEP 4 - STIR FRY\\r\\nAdd the sauce to the wok and then the broccoli and wait until it is boiling.\\r\\nTo thicken the sauce, whisk together 2 Tablespoon of cornstarch and 4 Tablespoon of water in a bowl and slowly add to your stir-fry until it's the right thickness.\\r\\nNext add in the chicken and stir-fry for a minute and serve on a plate\",\r\n    \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/1529444113.jpg\",\r\n    \"strTags\": null,\r\n    \"strYoutube\": \"https://www.youtube.com/watch?v=wWGwz0iBmvU\",\r\n    \"strIngredient1\": \"Chicken Breast\",\r\n    \"strIngredient2\": \"Plain Flour\",\r\n    \"strIngredient3\": \"Egg\",\r\n    \"strIngredient4\": \"Starch\",\r\n    \"strIngredient5\": \"Baking Powder\",\r\n    \"strIngredient6\": \"Salt\",\r\n    \"strIngredient7\": \"Onion Salt\",\r\n    \"strIngredient8\": \"Garlic Powder\",\r\n    \"strIngredient9\": \"Water\",\r\n    \"strIngredient10\": \"Chicken Stock\",\r\n    \"strIngredient11\": \"Duck Sauce\",\r\n    \"strIngredient12\": \"Soy Sauce\",\r\n    \"strIngredient13\": \"Honey\",\r\n    \"strIngredient14\": \"Rice Vinegar\",\r\n    \"strIngredient15\": \"Sesame Seed Oil\",\r\n    \"strIngredient16\": \"Gochujang\",\r\n    \"strIngredient17\": \"Starch\",\r\n    \"strIngredient18\": \"Garlic\",\r\n    \"strIngredient19\": \"Spring Onions\",\r\n    \"strIngredient20\": \"Ginger\",\r\n    \"strMeasure1\": \"1 1/2 \",\r\n    \"strMeasure2\": \"3/4 cup \",\r\n    \"strMeasure3\": \"1\",\r\n    \"strMeasure4\": \"2 tbs\",\r\n    \"strMeasure5\": \"1 tbs\",\r\n    \"strMeasure6\": \"1 tsp \",\r\n    \"strMeasure7\": \"1/2 tsp\",\r\n    \"strMeasure8\": \"1/4 tsp\",\r\n    \"strMeasure9\": \"3/4 cup \",\r\n    \"strMeasure10\": \"1/2 cup \",\r\n    \"strMeasure11\": \"1/4 cup\",\r\n    \"strMeasure12\": \"3 tbs\",\r\n    \"strMeasure13\": \"2 tbs\",\r\n    \"strMeasure14\": \"1 tbs\",\r\n    \"strMeasure15\": \"2 tbs\",\r\n    \"strMeasure16\": \"1/2 tbs\",\r\n    \"strMeasure17\": \"2 tbs\",\r\n    \"strMeasure18\": \"1 clove\",\r\n    \"strMeasure19\": \"2 chopped\",\r\n    \"strMeasure20\": \"1 tsp \",\r\n    \"strSource\": \"https://www.skinnytaste.com/general-tsos-chicken/\",\r\n    \"dateModified\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{backendUrl}}/post_meal",
+					"host": [
+						"{{backendUrl}}"
+					],
+					"path": [
+						"post_meal"
+					],
+					"query": [
+						{
+							"key": "idMeal",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNvb2tib29rIiwiaWF0IjoxNjA5MzM2OTI4LCJleHAiOjE2NDA4NzI5Mjh9.sWWE7Cy3FEqDMXaC9h8k9YIy09DkoOtqW-Juu76AscU"
+		},
+		{
+			"key": "backendUrl",
+			"value": "https://cookbook-softhouse-app.herokuapp.com"
+		}
+	]
+}
