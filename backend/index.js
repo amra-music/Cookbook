@@ -6,20 +6,18 @@ const app = express();
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 const port = 8080;
 
 function verify(req, res) {
-    var token = req.headers['x-access-token'];
+    const token = req.headers['x-access-token'];
     if (!token)
         return res.status(401).send({ auth: false, message: 'No token provided.' });
-    jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
+    jwt.verify(token, process.env.TOKEN_SECRET, (err) => {
         if (err)
             return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
     });
@@ -44,7 +42,7 @@ app.post('/post_meal', (req, res) => {
         if (!found) {
             meals = [req.body, ...existingMeals]
             fs.writeFile('meals.json', JSON.stringify(meals, null, 2), (err) => {
-                if (err) throw err;
+                if (err) { throw err; }
                 res.send('Meal successfully saved.');
             })
         } else {
@@ -58,11 +56,11 @@ app.delete('/delete_meal', function (req, res) {
     fs.readFile('meals.json', (err, data) => {
         if (err) { throw err; }
         let existingMeals = JSON.parse(data);
-        const found = existingMeals.find(meal => (meal.strMeal === req.body.strMeal));
-        const newMeals = existingMeals.filter(meal => (meal.strMeal !== req.body.strMeal));
-        if (found !== undefined) {
+        const found = existingMeals.some(meal => (meal.strMeal === req.body.strMeal));
+        if (found) {
+            const newMeals = existingMeals.filter(meal => (meal.strMeal !== req.body.strMeal));
             fs.writeFile('meals.json', JSON.stringify(newMeals, null, 2), (err) => {
-                if (err) throw err;
+                if (err) { throw err; }
                 res.send('Meal successfully deleted.');
             })
         } else {
@@ -76,13 +74,12 @@ app.post('/auth/login', (req, res) => {
     if (req.body.username !== 'cookbook' || req.body.password !== '#softhouseApp')
         return res.status(401).send({ auth: false, token: null, message: 'The username or password is incorrect.' })
 
-    var token = jwt.sign({ username: req.body.username }, process.env.TOKEN_SECRET, {
+    const token = jwt.sign({ username: req.body.username }, process.env.TOKEN_SECRET, {
         expiresIn: '365d'
     })
 
     res.status(200).send({ auth: true, token: token, message: 'send', username: req.body.username });
 });
-
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

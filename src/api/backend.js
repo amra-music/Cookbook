@@ -1,22 +1,20 @@
 import axios from 'axios';
 import { getToken } from "utilities/localStorage";
 
-export const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+const header = {
+    headers: {
+        'x-access-token': getToken()
+    }
+}
 
 export const getMyMeals = async () => {
-    return (await axios.get(`${backendUrl}/get_my_meals`, {
-        headers: {
-            'x-access-token': getToken()
-        }
-    })).data;
+    return (await axios.get(`${backendUrl}/get_my_meals`, header)).data;
 }
 
 export const saveMeal = async (meal) => {
-    return (await axios.post(`${backendUrl}/post_meal`, meal, {
-        headers: {
-            'x-access-token': getToken()
-        }
-    })).data;
+    return (await axios.post(`${backendUrl}/post_meal`, meal, header)).data;
 }
 
 export const deleteMeal = async (name) => {
@@ -25,13 +23,11 @@ export const deleteMeal = async (name) => {
             data: {
                 "strMeal": name
             },
-            headers: {
-                'x-access-token': getToken()
-            }
+            ...header
         }
     )).data;
 }
 
 export const loginUser = async (user) => {
-    return (await axios.post(backendUrl + '/auth/login', user)).data;
+    return (await axios.post(`${backendUrl}/auth/login`, user)).data;
 };

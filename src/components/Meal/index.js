@@ -19,16 +19,16 @@ const Meal = ({ meal, setMeal, home }) => {
 
     useEffect(() => {
         let ingredients = [];
-        const strIngredient = "strIngredient";
-        const strMeasure = "strMeasure";
+        const strIngredient = 'strIngredient';
+        const strMeasure = 'strMeasure';
 
         for (let i = 1; i <= 20; i++) {
             const newStrIngredient = strIngredient + i;
-            if (meal[newStrIngredient] === "" || meal[newStrIngredient] === null) break;
+            if (meal[newStrIngredient] === '' || meal[newStrIngredient] === null) break;
             const newStrMeasure = strMeasure + i;
             const pair = {
-                "ingredient": meal[newStrIngredient],
-                "measure": meal[newStrMeasure]
+                'ingredient': meal[newStrIngredient],
+                'measure': meal[newStrMeasure]
             }
             ingredients.push(pair);
         }
@@ -57,7 +57,7 @@ const Meal = ({ meal, setMeal, home }) => {
     return (
         <div className='meal-container-wrap'>
             {!home ?
-                <FaArrowLeft className='icon-btn arrow-icon' style={{ left: '-11%' }} onClick={() => history.goBack()}></FaArrowLeft>
+                <FaArrowLeft className='icon-btn arrow-icon' style={{ left: '-11%' }} onClick={() => history.goBack()} />
                 : null
             }
             {response !== null ?
@@ -66,9 +66,9 @@ const Meal = ({ meal, setMeal, home }) => {
             }
             <div className={home ? 'meal-container-home' : 'meal-container'}>
                 <div className='meal-title'>{meal.strMeal}</div>
-                <div className='meal-body' style={!home ? { 'flexWrap': 'wrap' } : null}>
+                <div className='meal-body'>
                     <div className='meal-about-image'>
-                        <img className='meal-image' alt='Meal' src={meal.strMealThumb} style={{ width: 300, height: 300 }}></img>
+                        <img className='meal-image' alt='Meal' src={meal.strMealThumb} style={{ width: 300, height: 300 }} />
                         {home ?
                             <button className='square-btn' onClick={() => history.push({ pathname: 'meal/' + meal.idMeal, state: { meal } })} >View more</button>
                             : null
@@ -82,7 +82,8 @@ const Meal = ({ meal, setMeal, home }) => {
                                         <tr>
                                             <td>{element.ingredient}</td>
                                             <td>{element.measure}</td>
-                                        </tr>)}
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
                         </div>
@@ -92,15 +93,15 @@ const Meal = ({ meal, setMeal, home }) => {
             </div>
             <div className='meal-buttons-container'>
                 {home ?
-                    <FaRandom className='icon-btn' onClick={getNewMeal}></FaRandom>
+                    <FaRandom className='icon-btn' onClick={getNewMeal} />
                     : null
                 }
                 {loggedIn ?
-                    <FaEdit className='icon-btn' onClick={handleShow}></FaEdit>
+                    <FaEdit className='icon-btn' onClick={handleShow} />
                     : null
                 }
                 {meal.strYoutube !== '' ?
-                    <FaYoutube className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube}></FaYoutube>
+                    <FaYoutube className='youtube-btn' rel='noreferrer' target='_blank' href={meal.strYoutube} />
                     : null
                 }
                 {loggedIn ?

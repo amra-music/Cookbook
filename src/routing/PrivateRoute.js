@@ -4,10 +4,11 @@ import { getToken } from "utilities/localStorage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     return (
-        <Route 
+        <Route
             {...rest}
-            render={() => getToken() !== "" ? (<Component /> ) : (<Redirect to="/" />)}
+            render={() => getToken() !== "" ? (<Component />) : (<Redirect to="/" />)}
         />
-    ); 
+    );
 }
+
 export default PrivateRoute;

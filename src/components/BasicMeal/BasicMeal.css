@@ -21,10 +21,11 @@
 
 .delete-icon {
     position: absolute;
-    color: white;
+    color: var(--white);
     font-size: 30px;
     right: 10px;
 }
+
 .delete-icon:hover {
-    color: red;
+    color: var(--red);
 }

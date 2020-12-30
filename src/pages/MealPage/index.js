@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { getMealbyId } from 'api/mealDb';
 import Meal from 'components/Meal';
 import { useHistory } from 'react-router-dom';
@@ -23,8 +23,8 @@ const MealPage = ({ match }) => {
     }, [match.params.id, meal])
 
     return (
-        <Meal meal={meal} setMeal={setMeal} home={false}></Meal>
+        <Meal meal={meal} setMeal={setMeal} home={false} />
     )
 }
 
-export default MealPage
+export default MealPage;

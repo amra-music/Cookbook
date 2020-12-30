@@ -8,10 +8,9 @@ import 'components/Login/Login.css'
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { loggedIn, setLoggedIn } = useUserContext();
     const [failedLogin, setFailedLogin] = useState(false);
     const [messageError, setMessageError] = useState('');
-
+    const { loggedIn, setLoggedIn } = useUserContext();
 
     const login = async () => {
         const user = {
@@ -50,7 +49,6 @@ const Login = () => {
             login();
         }
     }
-
 
     return (
         <>

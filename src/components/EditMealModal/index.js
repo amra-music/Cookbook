@@ -59,10 +59,10 @@ const EditMealModal = ({ meal, setMeal, show, setShow, ingredients }) => {
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
-                    </Button>
+                </Button>
                 <Button variant="purple" onClick={SaveChanges}>
                     Save Changes
-                    </Button>
+                </Button>
             </Modal.Footer>
         </Modal>
     );

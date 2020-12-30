@@ -25,7 +25,7 @@ const BasicMeal = ({ meal, myMeals, setMyMeals }) => {
                 <TiDeleteOutline className='delete-icon' onClick={() => deleteClick(meal.strMeal)} />
                 : null
             }
-            <img className='basic-meal-image' alt='Meal' src={meal.strMealThumb} style={{ width: 200, height: 200 }} onClick={aboutMeal}></img>
+            <img className='basic-meal-image' alt='Meal' src={meal.strMealThumb} style={{ width: 200, height: 200 }} onClick={aboutMeal} />
             <h4 className='basic-meal-title' onClick={aboutMeal}>{meal.strMeal}</h4>
         </div>
     )

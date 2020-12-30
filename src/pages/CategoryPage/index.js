@@ -4,8 +4,6 @@ import BasicMeal from 'components/BasicMeal';
 import { useHistory } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 
-import 'pages/CategoryPage/CategoryPage.css'
-
 const CategoryPage = ({ match }) => {
 
     const history = useHistory();
@@ -27,7 +25,7 @@ const CategoryPage = ({ match }) => {
 
     return (
         <div className='my-meals-container'>
-            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()}></FaArrowLeft>
+            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()} />
             <div className='basic-meals-container'>
                 {categoryMeals.map(meal => <BasicMeal meal={meal} />)}
             </div>

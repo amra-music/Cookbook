@@ -8,8 +8,7 @@ import SearchResulPage from 'pages/SearchResultPage/index';
 import NotFoundPage from 'pages/NotFoundPage/index';
 import PrivateRoute from 'routing/PrivateRoute';
 
-import 'routing/Routes.css'
-
+import 'routing/Routes.css';
 
 const Routes = () => {
     return (

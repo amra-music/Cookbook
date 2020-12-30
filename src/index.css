@@ -5,7 +5,7 @@
   --red: red;
   --light-grey: lightgray;
   --dark-grey: darkgrey;
-  --light-steel-blue:  lightsteelblue;
+  --light-steel-blue: lightsteelblue;
   --dark-slate-grey: darkslategrey;
   --footer-background: #292929;
   --content-background: #F5F5F5;
@@ -14,6 +14,7 @@
   --icon-purple-darker: #5d5281;
   --square-btn-purple: #5D417E;
   --alert-purple: #695D8F59;
+  --header-shadow-black: rgba(41, 41, 41, .25);
 }
 
 body {

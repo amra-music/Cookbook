@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { getMealbyName } from 'api/mealDb';
 import BasicMeal from 'components/BasicMeal';
 import { useHistory } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-
-import 'pages/CategoryPage/CategoryPage.css'
 
 const SearchResulPage = ({ match }) => {
 
@@ -25,7 +23,7 @@ const SearchResulPage = ({ match }) => {
 
     return (
         <div className='my-meals-container'>
-            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()}></FaArrowLeft >
+            <FaArrowLeft className='icon-btn arrow-icon' onClick={() => history.goBack()} />
             <h2 style={{ margin: 8 }}>Search results</h2>
             <div className='basic-meals-container'>
                 {searchResultMeals !== null ?
