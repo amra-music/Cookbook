@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 function verify(req, res) {
     const token = req.headers['x-access-token'];
@@ -23,10 +23,16 @@ function verify(req, res) {
     });
 }
 
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
+
 app.get('/get_my_meals', (req, res) => {
     verify(req, res);
     fs.readFile('meals.json', (err, data) => {
-        if (err) { throw err; }
+        if (err) {
+            return res.status(500).send({ message: 'Error while reading meals.json' });
+        }
         const meals = JSON.parse(data);
         res.send(meals);
     })
@@ -36,13 +42,17 @@ app.post('/post_meal', (req, res) => {
     verify(req, res);
     let meals;
     fs.readFile('meals.json', (err, data) => {
-        if (err) { throw err; }
+        if (err) {
+            return res.status(500).send({ message: 'Error while reading meals.json' });
+        }
         let existingMeals = JSON.parse(data)
         const found = existingMeals.some(meal => (meal.idMeal === req.body.idMeal && meal.strMeal === req.body.strMeal));
         if (!found) {
             meals = [req.body, ...existingMeals]
             fs.writeFile('meals.json', JSON.stringify(meals, null, 2), (err) => {
-                if (err) { throw err; }
+                if (err) {
+                    return res.status(500).send({ message: 'Error while writting to meals.json' });
+                }
                 return res.send('Meal successfully saved.');
             })
         } else {
@@ -54,13 +64,17 @@ app.post('/post_meal', (req, res) => {
 app.delete('/delete_meal', function (req, res) {
     verify(req, res);
     fs.readFile('meals.json', (err, data) => {
-        if (err) { throw err; }
+        if (err) {
+            return res.status(500).send({ message: 'Error while reading meals.json' });
+        }
         let existingMeals = JSON.parse(data);
         const found = existingMeals.some(meal => (meal.strMeal === req.body.strMeal));
         if (found) {
             const newMeals = existingMeals.filter(meal => (meal.strMeal !== req.body.strMeal));
             fs.writeFile('meals.json', JSON.stringify(newMeals, null, 2), (err) => {
-                if (err) { throw err; }
+                if (err) {
+                    return res.status(500).send({ message: 'Error while writting to meals.json' });
+                }
                 return res.send('Meal successfully deleted.');
             })
         } else {
