@@ -1,0 +1,5 @@
+.error-msg {
+    font-size: 10px;
+    text-align: end;
+    color: var(--red);
+}

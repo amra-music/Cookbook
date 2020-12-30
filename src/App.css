@@ -9,17 +9,28 @@ a {
     color: var(--black);
 }
 
+a:hover {
+    color: var(--black);
+    text-decoration: none;
+}
+
 .youtube-btn {
-    font-size: 40px;
+    font-size: 70px;
     color: var(--icon-purple);
     vertical-align: middle;
     transition: all 0.1s;
     padding-right: 25px;
+    cursor: pointer;
 }
 
 .youtube-btn:hover {
-    font-size: 42px;
+    font-size: 72px;
     transition: all 0.1s;
+}
+
+.header-btn {
+    margin-left: 20px;
+    border-radius: 5px;
 }
 
 .square-btn {
@@ -40,7 +51,7 @@ a {
 }
 
 .icon-btn {
-    font-size: 30px;
+    font-size: 60px;
     cursor: pointer;
     background: var(--content-background);
     color: var(--icon-purple);
@@ -51,6 +62,124 @@ a {
 }
 
 .icon-btn:hover {
-    font-size: 32px;
+    font-size: 62px;
     transition: all 0.1s;
+}
+
+.save-icon {
+    font-size: 20px;
+    vertical-align: bottom;
+}
+
+.arrow-icon {
+    position: absolute;
+    left: 5%;
+}
+
+.alert-purple {
+    background-color: var(--alert-purple);
+    border-color: var(--alert-purple);
+}
+
+.btn-purple {
+    color: var(--white);
+    background-color: var(--icon-purple);
+    border-color: var(--icon-purple);
+}
+
+.btn-purple:hover {
+    color: var(--white);
+    background-color: var(--icon-purple-darker);
+    border-color: var(--icon-purple-darker);
+}
+
+.search {
+    padding: 0px 25px;
+}
+
+.search-input {
+    width: 500px;
+}
+
+.header-input {
+    padding: 3px 4px;
+    border: 0.5px solid var(--light-grey);
+}
+
+.search-icon {
+    font-size: 30px;
+    color: var(--dark-grey);
+    vertical-align: bottom;
+    border: 0.5px solid var(--light-grey);
+    display: inline-grid;
+    border-left: none;
+}
+
+.search-icon:hover {
+    cursor: pointer;
+    color: var(--dark-slate-grey);
+    background-color: var(--light-steel-blue);
+}
+
+.modal-dialog {
+    max-width: 800px;
+}
+
+.modal-content {
+    border: 5px solid var(--icon-purple);
+    background-color: var(--content-background);
+}
+
+.modal-header {
+    padding: 0.5rem 1rem;
+}
+
+.modal-title {
+    color: var(--icon-purple);
+}
+
+.modal-ingredients {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+textarea.form-control {
+    max-height: 40px;
+}
+
+.modal-instructions {
+    min-height: 200px;
+}
+
+.modal-footer {
+    padding: 0.5rem;
+}
+
+.form-label {
+    font-size: 20px;
+    color: var(--icon-purple);
+    font-weight: lighter;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px var(--icon-purple);
+    border: 1px solid var(--icon-purple);
+}
+
+@media (max-width: 1199px) {
+    .search-input {
+        width: 250px;
+    }
+}
+
+@media (max-width: 991px) {
+    .search-input {
+        width: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search-input {
+        width: 100px;
+    }
 }

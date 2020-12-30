@@ -4,16 +4,21 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
+    -webkit-box-shadow: 0px 0px 9px 3px var(--header-shadow-black);
+    -moz-box-shadow: 0px 0px 9px 3px var(--header-shadow-black);
+    box-shadow: 0px 0px 9px 3px var(--header-shadow-black);
+    position: relative;
 }
 
 .header-logo-title {
-    font-size: 35px;
+    font-size: 2.3vw;
 }
 
 .header-logo-icon {
-    font-size: 45px; 
-    color: var(--header-logo-icon); 
+    font-size: 45px;
+    color: var(--header-logo-icon);
     vertical-align: bottom;
+    margin-bottom: 3px;
 }
 
 .header-links {

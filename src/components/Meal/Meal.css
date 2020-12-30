@@ -2,14 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    position: relative;
+    width: 100%;
 }
 
 .meal-container-home {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 93%;
     border: 2px solid var(--icon-purple);
-    border-radius: 25px
+    border-radius: 25px;
+    height: 580px;
 }
 
 .meal-container {
@@ -28,6 +31,7 @@
 .meal-body {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 25px;
 }
 
@@ -51,6 +55,10 @@
 .meal-ingredients {
     text-align: center;
     padding-bottom: 20px;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 370px;
+    max-width: 500px;
 }
 
 td {
@@ -67,7 +75,12 @@ td {
     padding-top: 30px;
 }
 
-.save-icon {
-    font-size: 20px;
-    vertical-align: bottom;
+.meal-alert {
+    text-align: center;
+}
+
+@media (max-width: 1199px) {
+    .meal-container-home {
+        height: unset;
+    }
 }

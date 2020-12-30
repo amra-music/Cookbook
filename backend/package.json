@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend server for Cookbook app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amra-music/Cookbook.git"
+  },
+  "author": "Amra Musić",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amra-music/Cookbook/issues"
+  },
+  "homepage": "https://github.com/amra-music/Cookbook#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}

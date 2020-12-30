@@ -1,0 +1,39 @@
+.meal-categories-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.meal-categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.meal-categories-title {
+    font-size: 30px;
+    height: 60px;
+    padding: 4px;
+}
+
+.meal-categories-btn {
+    text-align: left;
+    font-size: 16px;
+    padding: 6px 0px;
+    border-style: none;
+    background-color: var(--content-background);
+    border-bottom: 0.2px solid var(--icon-purple);
+}
+
+.meal-categories-btn:hover {
+    background-color: var(--icon-purple);
+}
+
+@media (max-width: 575px) {
+    .meal-categories {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .meal-categories-wrap {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,17 @@
+.basic-meals-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
+.export-btn {
+    position: absolute;
+    right: 3%;
+    top: 108px;
+}
+
+@media (max-width: 767px) {
+    .basic-meals-container>h3 {
+        margin-top: 60px;
+    }
+}

@@ -1,0 +1,31 @@
+.basic-meal-container {
+    position: relative;
+    width: 200px;
+    margin: 8px;
+    background-color: var(--square-btn-purple);
+    transition: all .1s;
+}
+
+.basic-meal-container:hover {
+    cursor: pointer;
+    scale: 1.03;
+    transition: all .1s;
+    box-shadow: 3px 4px var(--dark-grey);
+}
+
+.basic-meal-title {
+    text-align: center;
+    color: var(--white);
+    padding: 4px;
+}
+
+.delete-icon {
+    position: absolute;
+    color: var(--white);
+    font-size: 30px;
+    right: 10px;
+}
+
+.delete-icon:hover {
+    color: var(--red);
+}
