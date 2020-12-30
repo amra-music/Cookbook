@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port = 8080 || process.env.PORT;
+const port = process.env.PORT || 8080;
 
 function verify(req, res) {
     const token = req.headers['x-access-token'];
