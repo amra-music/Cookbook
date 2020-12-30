@@ -43,7 +43,7 @@ app.post('/post_meal', (req, res) => {
             meals = [req.body, ...existingMeals]
             fs.writeFile('meals.json', JSON.stringify(meals, null, 2), (err) => {
                 if (err) { throw err; }
-                res.send('Meal successfully saved.');
+                return res.send('Meal successfully saved.');
             })
         } else {
             res.send('This meal was added before.');
@@ -61,7 +61,7 @@ app.delete('/delete_meal', function (req, res) {
             const newMeals = existingMeals.filter(meal => (meal.strMeal !== req.body.strMeal));
             fs.writeFile('meals.json', JSON.stringify(newMeals, null, 2), (err) => {
                 if (err) { throw err; }
-                res.send('Meal successfully deleted.');
+                return res.send('Meal successfully deleted.');
             })
         } else {
             res.send('This meal does not exist.');
@@ -72,7 +72,7 @@ app.delete('/delete_meal', function (req, res) {
 app.post('/auth/login', (req, res) => {
 
     if (req.body.username !== 'cookbook' || req.body.password !== '#softhouseApp')
-        return res.status(401).send({ auth: false, token: null, message: 'The username or password is incorrect.' })
+        return res.status(401).send({ auth: false, token: null, message: 'The username or password is incorrect.' });
 
     const token = jwt.sign({ username: req.body.username }, process.env.TOKEN_SECRET, {
         expiresIn: '365d'
